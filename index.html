@@ -466,8 +466,14 @@
   function copyResults() {
     const c = calc();
 
+    const now = new Date();
+    const dateStr = (now.getMonth() + 1) + '月' + now.getDate() + '日';
+
     const lines = [
       '【餐厅日报汇总】',
+      '',
+      '门店：南京弘阳',
+      '日期：' + dateStr,
       '',
       '1. 目标业绩：' + safeFmt(c.targetRevenue, v => '¥' + fmtMoney(v)),
       '2. 实际业绩：¥' + fmtMoney(val(ids.restaurantRevenue)),
