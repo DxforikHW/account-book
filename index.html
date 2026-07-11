@@ -261,10 +261,6 @@
         <label>客单数<span class="unit">单</span></label>
         <input type="number" id="orders" placeholder="0" step="1">
       </div>
-      <div class="input-group">
-        <label>入园组数<span class="unit">组</span></label>
-        <input type="number" id="groups" placeholder="0" step="1">
-      </div>
     </div>
   </div>
 
@@ -351,7 +347,7 @@
 
   <!-- 计算结果 -->
   <div class="card" id="resultCard">
-    <div class="card-title"><span class="icon">📊</span>计算结果（共 19 项）</div>
+    <div class="card-title"><span class="icon">📊</span>计算结果（共 18 项）</div>
     <div id="results"></div>
   </div>
 
@@ -371,7 +367,6 @@
     restaurantRevenue: 'restaurantRevenue',
     diners: 'diners',
     orders: 'orders',
-    groups: 'groups',
     avgPerPerson: 'avgPerPerson',
     avgPerTable: 'avgPerTable',
     barAmount: 'barAmount',
@@ -438,7 +433,6 @@
       { label: '餐厅业绩占比', value: safeFmt(c.restaurantRatio, fmtPercent), computed: true },
       { label: '就餐人数', value: val(ids.diners) || '-' },
       { label: '客单数', value: val(ids.orders) || '-' },
-      { label: '入园组数', value: val(ids.groups) || '-' },
       { label: '餐厅入园转换率', value: safeFmt(c.conversionRate, fmtPercent), computed: true },
       { label: '客单价', value: '¥ ' + fmtMoney(val(ids.avgPerPerson)) },
       { label: '桌单价', value: '¥ ' + fmtMoney(val(ids.avgPerTable)) },
@@ -480,20 +474,19 @@
       '3. 餐厅业绩占比：' + safeFmt(c.restaurantRatio, fmtPercent),
       '4. 就餐人数：' + (val(ids.diners) || '-'),
       '5. 客单数：' + (val(ids.orders) || '-'),
-      '6. 入园组数：' + (val(ids.groups) || '-'),
-      '7. 餐厅入园转换率：' + safeFmt(c.conversionRate, fmtPercent),
-      '8. 客单价：¥' + fmtMoney(val(ids.avgPerPerson)),
-      '9. 桌单价：¥' + fmtMoney(val(ids.avgPerTable)),
-      '10. 水吧金额：¥' + fmtMoney(val(ids.barAmount)),
-      '11. 水吧金额占比：' + safeFmt(c.barRatio, fmtPercent),
-      '12. 套餐金额：¥' + fmtMoney(val(ids.mealAmount)),
-      '13. 套餐占比：' + safeFmt(c.mealRatio, fmtPercent),
-      '14. 今日上班 - 全职：' + (val(ids.fullTime) || '-'),
-      '15. 今日上班 - 兼职：' + (val(ids.partTime) || '-'),
-      '16. 现金：¥' + fmtMoney(val(ids.cash)),
-      '17. 二销：¥' + fmtMoney(val(ids.secondarySales)),
-      '18. 是否有评论内容反馈：' + getFeedbackLabel(),
-      '19. 月度总业绩：¥' + fmtMoney(val(ids.monthlyTotal)),
+      '6. 餐厅入园转换率：' + safeFmt(c.conversionRate, fmtPercent),
+      '7. 客单价：¥' + fmtMoney(val(ids.avgPerPerson)),
+      '8. 桌单价：¥' + fmtMoney(val(ids.avgPerTable)),
+      '9. 水吧金额：¥' + fmtMoney(val(ids.barAmount)),
+      '10. 水吧金额占比：' + safeFmt(c.barRatio, fmtPercent),
+      '11. 套餐金额：¥' + fmtMoney(val(ids.mealAmount)),
+      '12. 套餐占比：' + safeFmt(c.mealRatio, fmtPercent),
+      '13. 今日上班 - 全职：' + (val(ids.fullTime) || '-'),
+      '14. 今日上班 - 兼职：' + (val(ids.partTime) || '-'),
+      '15. 现金：¥' + fmtMoney(val(ids.cash)),
+      '16. 二销：¥' + fmtMoney(val(ids.secondarySales)),
+      '17. 是否有评论内容反馈：' + getFeedbackLabel(),
+      '18. 月度总业绩：¥' + fmtMoney(val(ids.monthlyTotal)),
     ];
 
     const text = lines.join('\n');
